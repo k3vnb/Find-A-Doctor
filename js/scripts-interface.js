@@ -1,5 +1,5 @@
+import { DoctorSearch } from './../js/scripts.js';
 
-const apiKey = require('./../.env').apiKey;
 
 $(document).ready(function(){
   $('#condition').val("skin");
@@ -10,6 +10,8 @@ $(document).ready(function(){
     const condition = $('#condition').val();
     const name = $('#name').val();
     console.log(condition, name);
+    const thisDocSearch = new DoctorSearch(condition, name);
+    console.log(thisDocSearch.getDocResults());
   })//form submit
 });//docReady
 
