@@ -15,7 +15,7 @@ export class DoctorSearch {
       },
       success: function(response) {
         console.log(this.url);
-        console.log(response);
+        console.log(response.data[0]);
         console.log("success");
         // success(response);
       },
