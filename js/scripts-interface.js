@@ -13,8 +13,15 @@ $(document).ready(function(){
     const thisDocSearch = new DoctorSearch(condition, name);
     console.log(thisDocSearch.getDocResults());
 
-    thisDocSearch.getDocResults(function(goodRequest){
-      alert(goodRequest);
+    thisDocSearch.getDocResults(function(resultArray){
+      $('.result').append(`<ul> <li>First Name: ${resultArray[0]}</li>
+                              <li>Last Name: ${resultArray[1]}</li>
+                              <li>Title: ${resultArray[2]}</li>
+                              <li>Phone: ${resultArray[3]}</li>
+                              <li>Website: ${resultArray[4]}</li>
+                              <li>Address: ${resultArray[5]}</li>
+                              <li>Accepting new patients?: ${resultArray[6]}</li></ul>`
+      );
     },
     function(badRequest){
       alert(badRequest);

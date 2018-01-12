@@ -14,21 +14,6 @@ export class DoctorSearch {
         format: 'json'
       },
       success: function(response) {
-        // console.log(this.url);
-        // // console.log(response.data[0].profile);//name info;
-        // console.log(response.data[0].profile.first_name);//name info;
-        // console.log(response.data[0].profile.last_name);//name info;
-        // console.log(response.data[0].profile.title);//name info;
-        // console.log(response.data[0].practices[0].phones[0].number);//phone info;
-        // console.log("new patients?" + response.data[0].practices[0].accepts_new_patients);//new patient query;
-        // console.log(response.data[0].practices[0].website);//website info;
-        // // console.log(response.data[0].practices[0].visit_address);//physical address info;
-        // console.log(response.data[0].practices[0].visit_address.street);//physical address info;
-        // console.log(response.data[0].practices[0].visit_address.street2);//physical address info;
-        // console.log(response.data[0].practices[0].visit_address.city);//physical address info;
-        // console.log(response.data[0].practices[0].visit_address.state);//physical address info;
-        // console.log(response.data[0].practices[0].visit_address.zip);//physical address info;
-        // console.log("success");
 
         const firstName = response.data[0].profile.first_name;//name info;
         const lastName = response.data[0].profile.last_name;//name info;
@@ -41,9 +26,25 @@ export class DoctorSearch {
         const city = response.data[0].practices[0].visit_address.city;//physical address info;
         const state = response.data[0].practices[0].visit_address.state;//physical address info;
         const zip = response.data[0].practices[0].visit_address.zip;//physical address info;
-        const newArray = [firstName, lastName, title, phone, website, street, street2, city, state, zip, newPatientQ];
+        let newPatients;
+        if (newPatientQ) {
+            newPatients = "Yes";
+        } else {
+            newPatients = "No";
+        }
+        function defineURL(a){
+          if (a === undefined) {
+            return "none provided";
+          } else {
+            return a;
+          }
+        }
+        let thisURL = defineURL(website);
+        console.log(newPatients, thisURL);
+        const addressArray = [street, street2, city, state, zip];
+        const newArray = [firstName, lastName, title, phone, thisURL, addressArray, newPatients];
         console.log(newArray);
-        success("response");
+        success(newArray);
       },
       error: function(err) {
         console.log("error");
