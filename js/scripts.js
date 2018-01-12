@@ -8,7 +8,7 @@ export class DoctorSearch {
 
   getDocResults(success, error) {
     $.ajax({
-      url: `https://api.betterdoctor.com/2016-03-01/doctors?name=${this.name}&query=${this.condition}&location=45.5231%2C-122.6765%2C10&user_location=45.5231%2C-122.6765&skip=0&limit=10&user_key=${apiKey}`,
+      url: `https://api.betterdoctor.com/2016-03-01/doctors?name=${this.name}&query=${this.condition}&location=45.5231%2C-122.6765%2C10&user_location=45.5231%2C-122.6765&skip=0&limit=10&user_key=s${apiKey}`,
       type: 'GET',
       data: {
         format: 'json'
@@ -21,12 +21,12 @@ export class DoctorSearch {
         console.log(response.data[0].practices[0].website);//website info;
         console.log(response.data[0].practices[0].visit_address);//physical address info;
         console.log("success");
-        // success(response);
+        success("response");
       },
-      error: function() {
+      error: function(err) {
         console.log("error");
-        // error(response);
+        error("error");
       }
     });//$.ajax
   }//getDocResults
-};//class DoctorSearch
+}//class DoctorSearch

@@ -2,8 +2,8 @@ import { DoctorSearch } from './../js/scripts.js';
 
 
 $(document).ready(function(){
-  // $('#condition').val("skin");
-  // $('#name').val('susan');
+  $('#condition').val("skin");
+  $('#name').val('susan');
   $('form#search-form').submit(function(event){
     event.preventDefault();
     $('.result').empty();
@@ -12,7 +12,16 @@ $(document).ready(function(){
     console.log(condition, name);
     const thisDocSearch = new DoctorSearch(condition, name);
     console.log(thisDocSearch.getDocResults());
-  })//form submit
+
+    thisDocSearch.getDocResults(function(goodRequest){
+      alert(goodRequest);
+    },
+    function(badRequest){
+      alert(badRequest);
+    });
+
+
+  });//form submit
 });//docReady
 
 
