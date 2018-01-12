@@ -17,6 +17,9 @@ export class DoctorSearch {
         console.log(this.url);
         console.log(response.data[0].profile);//name info;
         console.log(response.data[0].practices[0].phones[0].number);//phone info;
+        console.log("new patients?" + response.data[0].practices[0].accepts_new_patients);//new patient query;
+        console.log(response.data[0].practices[0].website);//website info;
+        console.log(response.data[0].practices[0].visit_address);//physical address info;
         console.log("success");
         // success(response);
       },

@@ -2,8 +2,8 @@ import { DoctorSearch } from './../js/scripts.js';
 
 
 $(document).ready(function(){
-  $('#condition').val("skin");
-  $('#name').val('susan');
+  // $('#condition').val("skin");
+  // $('#name').val('susan');
   $('form#search-form').submit(function(event){
     event.preventDefault();
     $('.result').empty();
