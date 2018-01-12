@@ -46,7 +46,7 @@ _Please contact Kevin Boyle at papershack@gmail.com with any questions_
 
 ## Technologies Used
 
-_Primarily HTML, CSS, JavaScript, with implemenation of Node.js via npm with management by Gulp. Query results arrive via BetterDoctor_
+_Primarily HTML, CSS, JavaScript, jQuery, & bootstrap with implemenation of Node.js via npm with asset pipeline management by Gulp. Query results arrive via BetterDoctor_
 
 ### License
 
