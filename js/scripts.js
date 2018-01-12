@@ -14,37 +14,40 @@ export class DoctorSearch {
         format: 'json'
       },
       success: function(response) {
-
-        const firstName = response.data[0].profile.first_name;//name info;
-        const lastName = response.data[0].profile.last_name;//name info;
-        const title = response.data[0].profile.title;//name info;
-        const phone = response.data[0].practices[0].phones[0].number;//phone info;
-        const newPatientQ = response.data[0].practices[0].accepts_new_patients;//new patient query;
-        const website = response.data[0].practices[0].website;//website info;
-        const street = response.data[0].practices[0].visit_address.street;//physical address info;
-        const street2 = response.data[0].practices[0].visit_address.street2;//physical address info;
-        const city = response.data[0].practices[0].visit_address.city;//physical address info;
-        const state = response.data[0].practices[0].visit_address.state;//physical address info;
-        const zip = response.data[0].practices[0].visit_address.zip;//physical address info;
-        let newPatients;
-        if (newPatientQ) {
+        let responseArray = [];
+        for (var i = 0; i < response.data.length; i++) {
+          // console.log(response.data[i]);
+          let firstName = response.data[i].profile.first_name;//name info;
+          let lastName = response.data[i].profile.last_name;//name info;
+          let title = response.data[i].profile.title;//name info;
+          let phone = response.data[i].practices[0].phones[0].number;//phone info;
+          let newPatientQ = response.data[i].practices[0].accepts_new_patients;//new patient query;
+          let website = response.data[i].practices[0].website;//website info;
+          let street = response.data[i].practices[0].visit_address.street;//physical address info;
+          let street2 = response.data[i].practices[0].visit_address.street2;//physical address info;
+          let city = response.data[i].practices[0].visit_address.city;//physical address info;
+          let state = response.data[i].practices[0].visit_address.state;//physical address info;
+          let zip = response.data[i].practices[0].visit_address.zip;//physical address info;
+          let newPatients;
+          if (newPatientQ) {
             newPatients = "Yes";
-        } else {
-            newPatients = "No";
-        }
-        function defineURL(a){
-          if (a === undefined) {
-            return "none provided";
           } else {
-            return a;
+            newPatients = "No";
           }
+          function defineURL(a){
+            if (a === undefined) {
+              return "none provided";
+            } else {
+              return a;
+            }
+          }
+          let thisURL = defineURL(website);
+          const addressArray = [street, street2, city, state, zip];
+          const newArray = [firstName, lastName, title, phone, thisURL, addressArray, newPatients];
+          responseArray.push(newArray);
         }
-        let thisURL = defineURL(website);
-        console.log(newPatients, thisURL);
-        const addressArray = [street, street2, city, state, zip];
-        const newArray = [firstName, lastName, title, phone, thisURL, addressArray, newPatients];
-        console.log(newArray);
-        success(newArray);
+        console.log("RA   " + responseArray[0]);
+        success(responseArray);
       },
       error: function(err) {
         const errMessage = `We're sorry, it appears we are having problems connecting to our database. Please try again.`;

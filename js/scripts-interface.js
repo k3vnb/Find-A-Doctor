@@ -2,8 +2,6 @@ import { DoctorSearch } from './../js/scripts.js';
 
 
 $(document).ready(function(){
-  $('#condition').val("skin");
-  $('#name').val('susan');
   $('form#search-form').submit(function(event){
     event.preventDefault();
     $('.result').empty();
@@ -14,14 +12,17 @@ $(document).ready(function(){
 
 
     thisDocSearch.getDocResults(function(resultArray){
-      $('.result').append(`<ul class='list'> <li>First Name: ${resultArray[0]}</li>
-                              <li>Last Name: ${resultArray[1]}</li>
-                              <li>Title: ${resultArray[2]}</li>
-                              <li>Phone: ${resultArray[3]}</li>
-                              <li>Website: ${resultArray[4]}</li>
-                              <li>Address: ${resultArray[5]}</li>
-                              <li>Accepting new patients?: ${resultArray[6]}</li></ul>`
-      );
+      for (var i = 0; i < resultArray.length; i++) {
+        $('.result').append(`<ul class='list'> <li>First Name: ${resultArray[i][0]}</li>
+                            <li>Last Name: ${resultArray[i][1]}</li>
+                            <li>Title: ${resultArray[i][2]}</li>
+                            <li>Phone: ${resultArray[i][3]}</li>
+                            <li>Website: ${resultArray[i][4]}</li>
+                            <li>Address: ${resultArray[i][5]}</li>
+                            <li>Accepting new patients?: ${resultArray[i][6]}</li></ul>`
+                          );
+
+      }
     },
     function(badRequest){
       $('.result').append(badRequest);
