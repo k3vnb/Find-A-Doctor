@@ -47,8 +47,8 @@ export class DoctorSearch {
         success(newArray);
       },
       error: function(err) {
-        console.log("error");
-        error("error");
+        const errMessage = `We're sorry, it appears we are having problems connecting to our database. Please try again.`;
+        error(errMessage);
       }
     });//$.ajax
   }//getDocResults
