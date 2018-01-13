@@ -4,7 +4,7 @@
 
 ## Description
 
-_Users will enter search query items into a form, which will trigger an API call to BetterDoctor API, returning results to the user based on their query inputs._
+_Users will enter search query items into a form, which will trigger an API call to BetterDoctor API, returning results to the user based on their query inputs. It can be found at https://lemurriot.github.io/Find-A-Doctor/._
 
 
 ## Specs & Planning
@@ -32,7 +32,7 @@ _Users will enter search query items into a form, which will trigger an API call
   * Example Output: "We're sorry, an error occurred, please try again."
 4. If user enters search query which returns no results, a message will be displayed accordingly.
   * Example Input: "Jane Dozzz!ugh".
-  * Example Output: "No matching results for your search 'Jane Dozzz!ugh'."
+  * Example Output: "No matching results for your search 'Jane Dozzz!ugh'."_
 
 
 
@@ -49,7 +49,7 @@ _Please contact Kevin Boyle at papershack@gmail.com with any questions_
 
 ## Technologies Used
 
-_Primarily HTML, CSS, JavaScript, jQuery, & bootstrap with implemenation of Node.js via npm with asset pipeline management by Gulp. Query results arrive via BetterDoctor_
+_Primarily HTML, CSS, JavaScript, jQuery, & bootstrap with implemenation of Node.js via npm with asset pipeline management by Gulp. Query results arrive via BetterDoctor API_
 
 ### License
 
