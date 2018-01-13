@@ -29,6 +29,8 @@ export class DoctorSearch {
           let lastName = response.data[i].profile.last_name;//name info;
           let title = response.data[i].profile.title;//name info;
           let phone = response.data[i].practices[0].phones[0].number;//phone info;
+          let phoneArray = [];
+          phoneArray.push(`${phone[0]}${phone[1]}${phone[2]}.${phone[3]}${phone[4]}${phone[5]}.${phone[6]}${phone[7]}${phone[8]}${phone[9]}`);
           let newPatientQ = response.data[i].practices[0].accepts_new_patients;//new patient query;
           let website = response.data[i].practices[0].website;//website info;
           let street = response.data[i].practices[0].visit_address.street;//physical address info;
@@ -50,7 +52,7 @@ export class DoctorSearch {
             streetArray.push(`${street}, ${street2}`);
           }
           const addressArray = [`${streetArray}, ${city}, ${state}, ${zip}`];
-          const newArray = [firstName, lastName, title, phone, thisURL, addressArray, newPatients];
+          const newArray = [firstName, lastName, title, phoneArray, thisURL, addressArray, newPatients];
           responseArray.push(newArray);
         }
         success(responseArray);
