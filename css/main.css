@@ -1,7 +1,16 @@
 .jumbotron {
   text-align: center;
-  background-color: lightblue;
+  background-image: url(../img/pdx.jpeg);
+  background-position: center;
+  background-size: cover;
 }
+
+h1 {
+  color: #0043ff!important;
+  text-shadow: 1px 1px 4px #ffe8e8;
+  font-size: 50px;
+}
+
 form {
   margin-left: 10vw;
   margin-bottom: 5vh;
