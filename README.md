@@ -39,6 +39,9 @@ _Users will enter search query items into a form, which will trigger an API call
 ## Setup Instructions
 _To clone this repository, user must run "$ npm init" and "$ bower init" on the cloned repository (make sure npm and bower are globally installed on your machine first). User must also obtain an API key from BetterDoctor API, create a .env file in root directory of project folder, and add `exports.apiKey = "xyz"` to the .env file where xyz = your API key._
 
+## Additional info
+_This is prototype for employing the BetterDoctor API. While the functionality is intact, the current visual styling is flat and uninspiring. With more time, a more interesting user-interface would be developed. Furthermore, the functionality could be built out to include a great deal more search filters, including changing original location (it is currently set to search within 10 miles of Portland), changing search radius, searching by specialty, etc. With more time, these aspects would be build out as well._
+
 
 ## Support and contact details
 

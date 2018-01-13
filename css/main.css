@@ -1,3 +1,33 @@
+.jumbotron {
+  text-align: center;
+  background-color: lightblue;
+}
+form {
+  margin-left: 10vw;
+  margin-bottom: 5vh;
+}
+input {
+  margin-bottom: 5vh;
+}
+button {
+  background-color: lightgreen;
+}
+.or {
+  font-size: 15px;
+
+}
+
 .result li {
   list-style: none;
+}
+
+.card {
+  border: 1px solid;
+  padding: 1%;
+  margin: 1%;
+  box-shadow: .5px .5px .5px;
+}
+
+.topic {
+  font-weight: bold;
 }
