@@ -1,13 +1,13 @@
 .jumbotron {
   text-align: center;
-  background-image: url(../img/pdx.jpeg);
+  background-image: url(../img/pdx.jpg);
   background-position: center;
   background-size: cover;
 }
 
 h1 {
-  color: #0043ff!important;
-  text-shadow: 1px 1px 4px #ffe8e8;
+  color: #ffffff!important;
+  text-shadow: 2px 1px 4px black;
   font-size: 50px;
 }
 
