@@ -23,6 +23,7 @@ export class DoctorSearch {
             return a;
           }
         }
+
         for (var i = 0; i < response.data.length; i++) {
           let firstName = response.data[i].profile.first_name;//name info;
           let lastName = response.data[i].profile.last_name;//name info;
@@ -42,11 +43,16 @@ export class DoctorSearch {
             newPatients = "No";
           }
           let thisURL = defineURL(website);
-          const addressArray = [street, street2, city, state, zip];
+          const streetArray = [];
+          if (street2 === undefined) {
+            streetArray.push(street);
+          } else {
+            streetArray.push(`${street}, ${street2}`);
+          }
+          const addressArray = [`${streetArray}, ${city}, ${state}, ${zip}`];
           const newArray = [firstName, lastName, title, phone, thisURL, addressArray, newPatients];
           responseArray.push(newArray);
         }
-        console.log("RA   " + responseArray);
         success(responseArray);
       },
       error: function(err) {

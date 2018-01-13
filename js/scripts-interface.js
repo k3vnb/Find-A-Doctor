@@ -24,14 +24,11 @@ $(document).ready(function(){
             <li>Address: ${resultArray[i][5]}</li>
             <li>Accepting new patients?: ${resultArray[i][6]}</li></ul>`
           );
-
         }
       }
     },
     function(badRequest){
       $('.result').append(badRequest);
     });
-
-
   });//form submit
 });//docReady
