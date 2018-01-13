@@ -15,8 +15,15 @@ export class DoctorSearch {
       },
       success: function(response) {
         let responseArray = [];
+
+        function defineURL(a){
+          if (a === undefined) {
+            return "none provided";
+          } else {
+            return a;
+          }
+        }
         for (var i = 0; i < response.data.length; i++) {
-          // console.log(response.data[i]);
           let firstName = response.data[i].profile.first_name;//name info;
           let lastName = response.data[i].profile.last_name;//name info;
           let title = response.data[i].profile.title;//name info;
@@ -34,19 +41,12 @@ export class DoctorSearch {
           } else {
             newPatients = "No";
           }
-          function defineURL(a){
-            if (a === undefined) {
-              return "none provided";
-            } else {
-              return a;
-            }
-          }
           let thisURL = defineURL(website);
           const addressArray = [street, street2, city, state, zip];
           const newArray = [firstName, lastName, title, phone, thisURL, addressArray, newPatients];
           responseArray.push(newArray);
         }
-        console.log("RA   " + responseArray[0]);
+        console.log("RA   " + responseArray);
         success(responseArray);
       },
       error: function(err) {

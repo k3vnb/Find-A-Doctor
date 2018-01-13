@@ -12,16 +12,20 @@ $(document).ready(function(){
 
 
     thisDocSearch.getDocResults(function(resultArray){
-      for (var i = 0; i < resultArray.length; i++) {
-        $('.result').append(`<ul class='list'> <li>First Name: ${resultArray[i][0]}</li>
-                            <li>Last Name: ${resultArray[i][1]}</li>
-                            <li>Title: ${resultArray[i][2]}</li>
-                            <li>Phone: ${resultArray[i][3]}</li>
-                            <li>Website: ${resultArray[i][4]}</li>
-                            <li>Address: ${resultArray[i][5]}</li>
-                            <li>Accepting new patients?: ${resultArray[i][6]}</li></ul>`
-                          );
+        if (resultArray.length === 0) {
+          $('.result').text('Your search terms returned no results. Please try a different set of search terms');
+        } else {
+          for (var i = 0; i < resultArray.length; i++) {
+            $('.result').append(`<ul class='list'> <li>First Name: ${resultArray[i][0]}</li>
+            <li>Last Name: ${resultArray[i][1]}</li>
+            <li>Title: ${resultArray[i][2]}</li>
+            <li>Phone: ${resultArray[i][3]}</li>
+            <li>Website: ${resultArray[i][4]}</li>
+            <li>Address: ${resultArray[i][5]}</li>
+            <li>Accepting new patients?: ${resultArray[i][6]}</li></ul>`
+          );
 
+        }
       }
     },
     function(badRequest){
